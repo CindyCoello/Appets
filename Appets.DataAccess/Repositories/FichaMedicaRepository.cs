@@ -21,13 +21,9 @@ namespace Appets.DataAccess.Repositories
             {
                 var resultado = db.Query<UDP_tbFichaMedica_SelectResult>(query, parameters, commandType: CommandType.StoredProcedure).ToList();
                 return resultado;
-
             }
-
-
         }
-
-
+        
         public tbFichaMedica Find(int id)
         {
             const string query = @"UDP_tbFichaMedica_Find";
@@ -38,10 +34,7 @@ namespace Appets.DataAccess.Repositories
             {
                 var resultado = db.QueryFirstOrDefault<tbFichaMedica>(query, parameters, commandType: CommandType.StoredProcedure);
                 return resultado;
-
             }
-
-
         }
 
 
@@ -56,7 +49,6 @@ namespace Appets.DataAccess.Repositories
                 return resultado;
             }
         }
-
 
         public int Insert(
             int masc_Id, 
@@ -74,7 +66,6 @@ namespace Appets.DataAccess.Repositories
             parameters.Add("@medic_Personalidad", medic_Personalidad, DbType.String, ParameterDirection.Input);
             parameters.Add("@medic_SaludCuidado", medic_SaludCuidado, DbType.String, ParameterDirection.Input);
             parameters.Add("@medic_InformacionAdicional", medic_InformacionAdicional, DbType.String, ParameterDirection.Input);
-    
 
             using (var db = new SqlConnection(AppetsDbContext.ConnectionString))
             {
@@ -103,9 +94,6 @@ namespace Appets.DataAccess.Repositories
                 }
             }
         }
-
-
-
 
         public int Update(
             int medic_Id,

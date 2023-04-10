@@ -9,8 +9,6 @@ namespace Appets.WebUI.Controllers
 {
     public class BaseController : Controller
     {
-
-
         protected void ShowAlert(string text, AlertMessageType type)
         {
             var messaje = new AlertMessageExtensions

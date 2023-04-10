@@ -119,25 +119,5 @@ namespace Appets.WebUI.Controllers
             model.comp_Nombre = componente.comp_Nombre;
             return AjaxResult(componente, true);
         }
-
-
-
-
-        //public IActionResult Delete(int id)
-        //{
-        //    int result = _componenteRepository.Delete(id);
-
-        //    if (result != -1)
-        //    {
-        //        ShowAlert("Registro eliminado correctamente", AlertMessageType.Success);
-        //        return RedirectToAction("Index");
-        //    }
-        //    else
-        //    {
-        //        ShowAlert("Error al eliminar el registro", AlertMessageType.Error);
-        //        return RedirectToAction("Index");
-        //    }
-        //}
-
     }
 }

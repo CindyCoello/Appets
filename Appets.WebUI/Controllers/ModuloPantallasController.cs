@@ -49,8 +49,6 @@ namespace Appets.WebUI.Controllers
             });
         }
 
-
-
         [SessionManager("Crear Pantallas")]
         [HttpPost("modulopantallas/listado-modulopantallas", Name = "SaveModuloPantallas")]
         public IActionResult EditarModulos(ModuloPantallasViewModel model)

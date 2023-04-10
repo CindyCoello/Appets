@@ -16,7 +16,6 @@ namespace Appets.WebUI.Models
         [Required(ErrorMessage = "El Campo {0} es requerido")]
         public string espc_Descripcion { get; set; }
 
-
     }
     
 }

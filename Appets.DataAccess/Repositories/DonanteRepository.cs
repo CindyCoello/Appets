@@ -24,10 +24,7 @@ namespace Appets.DataAccess.Repositories
 
             }
 
-
         }
-
-
 
         public tbDonantes Find(int id)
         {
@@ -45,11 +42,8 @@ namespace Appets.DataAccess.Repositories
 
         }
 
-
-       
         public int Insert(int per_Id, DateTime don_Fecha, string don_Descripcion)
         {
-          
             int resultado = 0;
             const string sqlQueryDonante = "UDP_tbDonantes_Insert";
 
@@ -57,7 +51,6 @@ namespace Appets.DataAccess.Repositories
             parameterDonante.Add("@per_Id", per_Id, DbType.Int32, ParameterDirection.Input);
             parameterDonante.Add("@don_Fecha", don_Fecha, DbType.Date, ParameterDirection.Input);
             parameterDonante.Add("@don_Descripcion", don_Descripcion, DbType.String, ParameterDirection.Input);
-           
 
             using (var db = new SqlConnection(AppetsDbContext.ConnectionString))
             {
@@ -88,15 +81,11 @@ namespace Appets.DataAccess.Repositories
         }
 
 
-
-
         public int Update(int don_Id, int per_Id, System.DateTime don_Fecha, string don_Descripcion)
         {
-    
             int resultado = 0;
             const string sqlQueryDonante = "UDP_tbDonantes_Update";
 
-           
             var parameterDonante = new DynamicParameters();
             parameterDonante.Add("@don_Id", per_Id, DbType.Int32, ParameterDirection.Input);
             parameterDonante.Add("@per_Id", per_Id, DbType.Int32, ParameterDirection.Input);

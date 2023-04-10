@@ -21,10 +21,7 @@ namespace Appets.DataAccess.Repositories
             {
                 var resultado = db.Query<tbProcedencia>(query, parameters, commandType: CommandType.StoredProcedure).ToList();
                 return resultado;
-
             }
-
-
         }
 
 
@@ -38,10 +35,7 @@ namespace Appets.DataAccess.Repositories
             {
                 var resultado = db.QueryFirstOrDefault<tbProcedencia>(query, parameters, commandType: CommandType.StoredProcedure);
                 return resultado;
-
             }
-
-
         }
 
         public int Insert(string procedencia)
@@ -78,8 +72,6 @@ namespace Appets.DataAccess.Repositories
                 }
             }
         }
-
-
 
 
         public int Update(int proc_Id, string proc_Descripcion)

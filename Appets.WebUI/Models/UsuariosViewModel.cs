@@ -18,9 +18,6 @@ namespace Appets.WebUI.Models
             CambiarContraseña = new CambiarContraseña();
         }
 
-        
-
-
     }
 
     public class LoginViewModel

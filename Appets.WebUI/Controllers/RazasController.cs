@@ -13,7 +13,6 @@ namespace Appets.WebUI.Controllers
 {
     public class RazasController : BaseController
     {
-
         private readonly RazasRepository _razasRepository;
         private readonly EspeciesRepository _especiesRepository;
 
@@ -108,7 +107,6 @@ namespace Appets.WebUI.Controllers
             }
             return RedirectToAction("Index");
 
-
         }
 
         //[SessionManager("Editar Razas")]
@@ -126,7 +124,5 @@ namespace Appets.WebUI.Controllers
             model.raza_Descripcion = razas.raza_Descripcion;
             return AjaxResult(razas, true);
         }
-
-
     }
 }

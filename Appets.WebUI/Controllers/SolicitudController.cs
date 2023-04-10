@@ -67,8 +67,6 @@ namespace Appets.WebUI.Controllers
 
         public IActionResult EditarSolicitud(SolicitudViewModel model)
         {
-
-
             if (ModelState.IsValid)
             {
                 int result = 0;
@@ -82,15 +80,12 @@ namespace Appets.WebUI.Controllers
                     {
                         ShowAlert("Registro Ingresado Correctamente", AlertMessageType.Success);
                         return RedirectToAction("Index");
-
                     }
 
                     else
                     {
-
                         goto error;
                     }
-
                 }
                 else
                 {
@@ -99,11 +94,9 @@ namespace Appets.WebUI.Controllers
                     {
                         ShowAlert("Registro actualizado Correctamente", AlertMessageType.Success);
                         return RedirectToAction("Index");
-
                     }
                     else
                     {
-
                         goto error;
                     }
                 }
@@ -118,10 +111,7 @@ namespace Appets.WebUI.Controllers
 
             }
             return RedirectToAction("Index");
-
-
         }
-
 
         //[SessionManager("Editar Solicitud Adopcion")]
         public IActionResult EditarSolicitud(int id)
@@ -131,7 +121,6 @@ namespace Appets.WebUI.Controllers
             {
                 return View(nameof(Index));
             }
-
             var model = new SolicitudViewModel();
             ViewBag.solic_Id = id;
             model.solic_Id = id;

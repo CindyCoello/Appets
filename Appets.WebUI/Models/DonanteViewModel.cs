@@ -12,7 +12,6 @@ namespace Appets.WebUI.Models
     {
         [Key]
 
-
         [Display(Name = "Id Donante")]
         public int don_Id { get; set; }
 
@@ -37,7 +36,6 @@ namespace Appets.WebUI.Models
         {
             DonanteList = new SelectList(personas, "per_Id", "per_Nombres");
         }
-
 
     }
     

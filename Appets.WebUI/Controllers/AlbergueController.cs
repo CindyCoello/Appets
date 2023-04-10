@@ -141,32 +141,5 @@ namespace Appets.WebUI.Controllers
             return View(model);
         }
 
-
-
-
-        //public IActionResult EliminarAlbergue(int id)
-        //{
-        //    var albergue = _albergueRepository.Delete(id);
-        //    if (albergue == null)
-        //    {
-        //        return View(nameof(Index));
-        //    }
-
-        //    var model = new AlbergueViewModel();
-        //    ViewBag.alberg_Id = id;
-        //    model.alberg_Id = id;
-        //    model.alberg_RTN = albergue.alberg_RTN;
-        //    model.alberg_Nombre = albergue.alberg_Nombre;
-        //    model.alberg_Ubicacion = albergue.alberg_Ubicacion;
-        //    model.alberg_Telefono = albergue.alberg_Telefono;
-        //    model.alberg_Correo = albergue.alberg_Correo;
-        //    model.alberg_Mision = albergue.alberg_Mision;
-        //    model.alberg_InformacionAdicion = albergue.alberg_InformacionAdicion;
-        //    return View(model);
-        //}
-
-
-
-
     }
 }

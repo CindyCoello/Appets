@@ -63,8 +63,6 @@ namespace Appets.WebUI.Controllers
 
         public IActionResult EditarVoluntario(VoluntarioViewModel model)
         {
-
-
             if (ModelState.IsValid)
             {
                 int result = 0;
@@ -77,12 +75,10 @@ namespace Appets.WebUI.Controllers
                     {
                         ShowAlert("Registro Ingresado Correctamente", AlertMessageType.Success);
                         return RedirectToAction("Index");
-
                     }
 
                     else
                     {
-
                         goto error;
                     }
 

@@ -21,26 +21,18 @@ namespace Appets.DataAccess.Repositories
             {
                 var resultado = db.Query<tbPersonas>(query, parameters, commandType: CommandType.StoredProcedure).ToList();
                 return resultado;
-
             }
-
-
         }
 
         public IEnumerable<UDP_tbPersonas_EsEmpleadoResult> PersonaListado()
         {
             const string query = @"UDP_tbPersonas_EsEmpleado";
             var parameters = new DynamicParameters();
-
-
             using (var db = new SqlConnection(AppetsDbContext.ConnectionString))
             {
                 var resultado = db.Query<UDP_tbPersonas_EsEmpleadoResult>(query, parameters, commandType: CommandType.StoredProcedure).ToList();
                 return resultado;
-
             }
-
-
         }
 
 
@@ -48,16 +40,11 @@ namespace Appets.DataAccess.Repositories
         {
             const string query = @"UDP_tbPersonas_EsDonante";
             var parameters = new DynamicParameters();
-
-
             using (var db = new SqlConnection(AppetsDbContext.ConnectionString))
             {
                 var resultado = db.Query<UDP_tbPersonas_EsDonanteResult>(query, parameters, commandType: CommandType.StoredProcedure).ToList();
                 return resultado;
-
             }
-
-
         }
 
         public IEnumerable<UDP_tbPersonas_EsVoluntarioResult> PersonaListado3()
@@ -65,15 +52,11 @@ namespace Appets.DataAccess.Repositories
             const string query = @"UDP_tbPersonas_EsVoluntario";
             var parameters = new DynamicParameters();
 
-
             using (var db = new SqlConnection(AppetsDbContext.ConnectionString))
             {
                 var resultado = db.Query<UDP_tbPersonas_EsVoluntarioResult>(query, parameters, commandType: CommandType.StoredProcedure).ToList();
                 return resultado;
-
             }
-
-
         }
 
 
@@ -81,16 +64,11 @@ namespace Appets.DataAccess.Repositories
         {
             const string query = @"UDP_tbPersonas_EsAdoptante";
             var parameters = new DynamicParameters();
-
-
             using (var db = new SqlConnection(AppetsDbContext.ConnectionString))
             {
                 var resultado = db.Query<UDP_tbPersonas_EsAdoptanteResult>(query, parameters, commandType: CommandType.StoredProcedure).ToList();
                 return resultado;
-
             }
-
-
         }
 
 
@@ -98,16 +76,11 @@ namespace Appets.DataAccess.Repositories
         {
             const string query = @"UDP_tbPersonas_EsEmpleado";
             var parameters = new DynamicParameters();
-
-
             using (var db = new SqlConnection(AppetsDbContext.ConnectionString))
             {
                 var resultado = db.Query<UDP_tbPersonas_EsEmpleadoResult>(query, parameters, commandType: CommandType.StoredProcedure).ToList();
                 return resultado;
-
             }
-
-
         }
 
 
@@ -133,10 +106,7 @@ namespace Appets.DataAccess.Repositories
             {
                 var resultado = db.QueryFirstOrDefault<tbPersonas>(query, parameters, commandType: CommandType.StoredProcedure);
                 return resultado;
-
             }
-
-
         }
 
         public int Insert(

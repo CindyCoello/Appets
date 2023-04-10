@@ -19,10 +19,7 @@ namespace Appets.DataAccess.Repositories
             {
                 var resultado = db.Query<UDP_tbModuloPantallas_SelectResult>(query, parameters, commandType: CommandType.StoredProcedure).ToList();
                 return resultado;
-
             }
-
-
         }
 
 
@@ -36,10 +33,7 @@ namespace Appets.DataAccess.Repositories
             {
                 var resultado = db.Query<UDP_tbModuloPantallaByRolResult>(query, parameters, commandType: CommandType.StoredProcedure).ToList();
                 return resultado;
-
             }
-
-
         }
 
         public tbModuloPantallas Find(int id)

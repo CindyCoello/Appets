@@ -15,19 +15,13 @@ namespace Appets.DataAccess.Repositories
         {
             const string query = @"UDP_tbEspecies_Select";
             var parameters = new DynamicParameters();
-
-
             using (var db = new SqlConnection(AppetsDbContext.ConnectionString))
             {
                 var resultado = db.Query<tbEspecies>(query, parameters, commandType: CommandType.StoredProcedure)
                     .ToList();
                 return resultado;
-
             }
-
-
         }
-
 
         public tbEspecies Find(int id)
         {
@@ -39,10 +33,7 @@ namespace Appets.DataAccess.Repositories
             {
                 var resultado = db.QueryFirstOrDefault<tbEspecies>(query, parameters, commandType: CommandType.StoredProcedure);
                 return resultado;
-
             }
-
-
         }
 
         public string Delete(int id)
@@ -93,8 +84,6 @@ namespace Appets.DataAccess.Repositories
         }
 
 
-
-
         public int Update(int espc_Id ,string especies)
         {
             int resultado = 0;
@@ -130,8 +119,6 @@ namespace Appets.DataAccess.Repositories
                 }
             }
         }
-
-
        
     }
 }

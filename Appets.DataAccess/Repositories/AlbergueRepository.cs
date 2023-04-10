@@ -44,23 +44,6 @@ namespace Appets.DataAccess.Repositories
 
         }
 
-
-        //public tbAlbergue Delete(int id)
-        //{
-        //    const string query = @"UDP_tbAlbergue_Delete";
-        //    var parameters = new DynamicParameters();
-        //    parameters.Add("@alberg_Id", id, DbType.Int32, ParameterDirection.Input);
-
-        //    using (var db = new SqlConnection(AppetsDbContext.ConnectionString))
-        //    {
-        //        var resultado = db.QueryFirstOrDefault<tbAlbergue>(query, parameters, commandType: CommandType.StoredProcedure);
-        //        return resultado;
-
-        //    }
-
-
-        //}
-
         public int Insert(
             string rtn,
             string nombre,
@@ -109,9 +92,6 @@ namespace Appets.DataAccess.Repositories
                 }
             }
         }
-
-
-
 
         public int Update(
             int Alberg_Id,

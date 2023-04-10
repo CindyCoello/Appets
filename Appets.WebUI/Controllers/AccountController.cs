@@ -6,8 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System;
 
-
-
 namespace Appets.WebUI.Controllers
 {
     public class AccountController : Controller

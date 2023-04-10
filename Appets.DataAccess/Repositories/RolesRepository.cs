@@ -21,12 +21,8 @@ namespace Appets.DataAccess.Repositories
             {
                 var resultado = db.Query<tbRoles>(query, parameters, commandType: CommandType.StoredProcedure).ToList();
                 return resultado;
-
             }
-
         }
-
-
 
         public int Insert(tbRoles roles, IEnumerable<int> modulesItems)
         {

@@ -35,13 +35,8 @@ namespace Appets.DataAccess
                 services.AddScoped<SolicitudRepository>();
                 services.AddScoped<EmpleadoRepository>();
                 services.AddScoped<OcupacionRepository>();
-
+                services.AddScoped<HelpersServicie>();
             
-
-               services.AddScoped<HelpersServicie>();
-              
-
-
             services.AddSingleton<IActionContextAccessor, ActionContextAccessor>()
                 .AddScoped<IUrlHelper>(x => x
                 .GetRequiredService<IUrlHelperFactory>()

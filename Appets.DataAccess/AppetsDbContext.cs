@@ -11,7 +11,6 @@ namespace Appets.DataAccess
     {
         public static string ConnectionString { get; set; }
 
-
         public AppetsDbContext()
         {
             ChangeTracker.LazyLoadingEnabled = false;
@@ -27,7 +26,6 @@ namespace Appets.DataAccess
 
             base.OnConfiguring(OptionsBuilder);
         }
-
 
         public static void BuildConnectionString(string connectionString)
         {

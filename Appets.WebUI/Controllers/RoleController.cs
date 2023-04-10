@@ -179,9 +179,7 @@ namespace Appets.WebUI.Controllers
 
                 }
                 return RedirectToAction("Roles");
-            }
-                
-            
+            } 
                
         }
 

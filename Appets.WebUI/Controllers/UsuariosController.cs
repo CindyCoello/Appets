@@ -30,8 +30,6 @@ namespace Appets.WebUI.Controllers
             return View(model);
         }
 
-
-
         //public IActionResult EditarUsuario()
         //{
         //    var model = new UsuariosViewModel();
@@ -46,7 +44,6 @@ namespace Appets.WebUI.Controllers
             ViewBag.usu_Id = 0;
             return View(nameof(EditarUsuario),model);
         }
-
        
         public ActionResult UserList()
         {
@@ -208,11 +205,6 @@ namespace Appets.WebUI.Controllers
             model.EditarUsuario.LlenarLista(_rolesRepository.RolesList());
             return View(model);
         }
-
-
-
-        
-  
 
     }
 }

@@ -16,11 +16,6 @@ namespace Appets.WebUI.Models
         [Required(ErrorMessage = "El Campo {0} es requerido")]
         public string ocup_Descripcion { get; set; }
 
-
-
-
-
-
     }
     
 }

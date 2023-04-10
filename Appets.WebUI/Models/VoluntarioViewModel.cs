@@ -11,8 +11,6 @@ namespace Appets.WebUI.Models
     public class VoluntarioViewModel
     {
         [Key]
-
-
      
         [Display(Name = "Id Voluntario")]
         public int volun_Id { get; set; }
@@ -28,7 +26,6 @@ namespace Appets.WebUI.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime volun_FechaIngreso { get; set; }
-
 
         public void LlenarListas(IEnumerable<UDP_tbPersonas_EsVoluntarioResult> personas )
         {

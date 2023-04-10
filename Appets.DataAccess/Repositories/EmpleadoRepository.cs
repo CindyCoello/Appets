@@ -23,11 +23,7 @@ namespace Appets.DataAccess.Repositories
                 return resultado;
 
             }
-
-
         }
-
-
 
         public UDP_tbEmpleados_SelectResult Find(int id)
         {
@@ -41,10 +37,7 @@ namespace Appets.DataAccess.Repositories
                 return resultado;
 
             }
-
-
         }
-
 
         public string Delete(int id)
         {
@@ -96,8 +89,6 @@ namespace Appets.DataAccess.Repositories
         }
 
 
-
-
         public int Update(int emp_Id, int per_Id, int ocup_Id)
         {
             int resultado = 0;
@@ -134,8 +125,6 @@ namespace Appets.DataAccess.Repositories
                 }
             }
         }
-
-
 
     }
 }

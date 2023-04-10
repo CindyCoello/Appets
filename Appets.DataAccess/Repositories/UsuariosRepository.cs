@@ -6,9 +6,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 
-
-
-
 namespace Appets.DataAccess.Repositories
 {
     public class UsuariosRepository
@@ -21,31 +18,22 @@ namespace Appets.DataAccess.Repositories
             parameters.Add("@usu_Identidad", identidad, DbType.String, ParameterDirection.Input);
             parameters.Add("@usu_Contraseña", contraseña, DbType.String, ParameterDirection.Input);
 
-
             using (var db = new SqlConnection(AppetsDbContext.ConnectionString))
             {
                 result = db.QueryFirstOrDefault<tbUsuarios>(SqlQuery, parameters, commandType: CommandType.StoredProcedure);
             }
-
             return result;
         }
-
-
 
         public IEnumerable<UDP_tbUsuarios_SelectResult> UsuariosList()
         {
             const string query = @"UDP_tbUsuarios_Select";
             var parameters = new DynamicParameters();
-
-
             using (var db = new SqlConnection(AppetsDbContext.ConnectionString))
             {
                 var resultado = db.Query<UDP_tbUsuarios_SelectResult>(query, parameters, commandType: CommandType.StoredProcedure).ToList();
                 return resultado;
-
             }
-
-
         }
 
 
@@ -59,10 +47,7 @@ namespace Appets.DataAccess.Repositories
             {
                 var resultado = db.QueryFirstOrDefault<UDP_tbUsuarios_SelectResult>(query, parameters, commandType: CommandType.StoredProcedure);
                 return resultado;
-
             }
-
-
         }
 
 
@@ -75,8 +60,6 @@ namespace Appets.DataAccess.Repositories
             parameters.Add("@usu_Contraseña", contraseña, DbType.String, ParameterDirection.Input);
             parameters.Add("@usu_Id", id, DbType.Int32, ParameterDirection.Input);
             parameters.Add("@usu_Identidad", identidad, DbType.String, ParameterDirection.Input);
-            
-
             using (var db = new SqlConnection(AppetsDbContext.ConnectionString))
             {
                 db.Open();
@@ -104,8 +87,6 @@ namespace Appets.DataAccess.Repositories
                 }
             }
         }
-
-
 
         public int Insert(
             string usu_Identidad,
@@ -158,9 +139,6 @@ namespace Appets.DataAccess.Repositories
             }
         }
 
-
-
-
         public int Update(
             int usu_Id, 
             string usu_Identidad,
@@ -169,7 +147,6 @@ namespace Appets.DataAccess.Repositories
             string usu_SegundoNombre,
             string usu_SegundoApellido,
             string usu_Telefono,
-            //string usu_Contraseña,
             int rol_Id)
         {
             int resultado = 0;

@@ -15,18 +15,12 @@ namespace Appets.DataAccess.Repositories
         {
             const string query = @"UDP_tbVoluntarios_Select";
             var parameters = new DynamicParameters();
-
-
             using (var db = new SqlConnection(AppetsDbContext.ConnectionString))
             {
                 var resultado = db.Query<UDP_tbVoluntarios_SelectResult>(query, parameters, commandType: CommandType.StoredProcedure).ToList();
                 return resultado;
-
             }
-
-
         }
-
 
         public tbVoluntarios Find(int id)
         {
@@ -38,9 +32,7 @@ namespace Appets.DataAccess.Repositories
             {
                 var resultado = db.QueryFirstOrDefault<tbVoluntarios>(query, parameters, commandType: CommandType.StoredProcedure);
                 return resultado;
-
             }
-
         }
 
         public string Delete(int id)
@@ -93,15 +85,11 @@ namespace Appets.DataAccess.Repositories
             }
         }
 
-
-
-
         public int Update(int volun_Id, int per_Id, DateTime volun_FechaIngreso)
         {
             int resultado = 0;
             const string sqlQueryVolun = "UDP_tbVoluntarios_Update";
 
-           
             var parameter = new DynamicParameters();
             parameter.Add("@volun_Id", volun_Id, DbType.Int32, ParameterDirection.Input);
             parameter.Add("@per_Id", per_Id, DbType.Int32, ParameterDirection.Input);

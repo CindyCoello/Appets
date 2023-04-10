@@ -21,12 +21,8 @@ namespace Appets.DataAccess.Repositories
             {
                 var resultado = db.Query<UDP_tbSolicitud_SelectResult>(query, parameters, commandType: CommandType.StoredProcedure).ToList();
                 return resultado;
-
             }
-
-
         }
-
 
         public tbSolicitud Find(int id)
         {
@@ -38,9 +34,7 @@ namespace Appets.DataAccess.Repositories
             {
                 var resultado = db.QueryFirstOrDefault<tbSolicitud>(query, parameters, commandType: CommandType.StoredProcedure);
                 return resultado;
-
             }
-
 
         }
 
@@ -84,9 +78,6 @@ namespace Appets.DataAccess.Repositories
             }
         }
 
-
-
-
         public int Update(int solic_Id, string solic_Correo, string solic_NombreCompleto, DateTime solic_Fecha, int masc_Id)
         {
             int resultado = 0;
@@ -125,8 +116,5 @@ namespace Appets.DataAccess.Repositories
                 }
             }
         }
-
-
-
     }
 }

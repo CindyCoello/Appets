@@ -102,12 +102,6 @@ namespace Appets.WebUI.Controllers
 
         }
 
-        //public IActionResult EditarEspecie(EspeciesViewModel model)
-        //{
-        //    return RedirectToAction("Index");
-        //}
-
-        //[SessionManager("Editar Especies")]
         public IActionResult GetEspecie(int id)
         {
             var especie = _especiesRepository.Find(id);

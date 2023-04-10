@@ -52,14 +52,10 @@ namespace Appets.DataAccess.Services
         }
 
 
-
-
         public string updateMascotasImagen(IFormFile file, int id)
         {
             string oldFile = "";
             string newExtension = "";
-
-
             try
             {
                 if (file.ContentType != "image/jpeg" &&
@@ -83,14 +79,12 @@ namespace Appets.DataAccess.Services
                     File.Delete(oldFile);
                 }
 
-
                 using (var imagenScreen = file.OpenReadStream())
                 {
                     using (var img = Image.Load(imagenScreen))
                     {
                         img.Mutate(x => x.Resize(new ResizeOptions
                         {
-
                             Mode = ResizeMode.Min,
                             Size = new SixLabors.ImageSharp.Size(width: 500, height: 500)
 
@@ -126,7 +120,6 @@ namespace Appets.DataAccess.Services
                 return "Error";
             }
         }
-
 
     }
 }

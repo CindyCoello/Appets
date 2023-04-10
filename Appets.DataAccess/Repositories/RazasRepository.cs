@@ -15,16 +15,11 @@ namespace Appets.DataAccess.Repositories
         {
             const string query = @"UDP_tbRazas_Select";
             var parameters = new DynamicParameters();
-
-
             using (var db = new SqlConnection(AppetsDbContext.ConnectionString))
             {
                 var resultado = db.Query<UDP_tbRazas_SelectResult>(query, parameters, commandType: CommandType.StoredProcedure).ToList();
                 return resultado;
-
             }
-
-
         }
        
         public IEnumerable<tbRazas> RazasByEspecie(int id)
@@ -37,10 +32,7 @@ namespace Appets.DataAccess.Repositories
             {
                 var resultado = db.Query<tbRazas>(query, parameters, commandType: CommandType.StoredProcedure).ToList();
                 return resultado;
-
             }
-
-
         }
 
         public tbRazas Find(int id)
@@ -53,10 +45,7 @@ namespace Appets.DataAccess.Repositories
             {
                 var resultado = db.QueryFirstOrDefault<tbRazas>(query, parameters, commandType: CommandType.StoredProcedure);
                 return resultado;
-
             }
-
-
         }
 
 
@@ -97,13 +86,10 @@ namespace Appets.DataAccess.Repositories
         }
 
 
-
-
         public int Update(int raza_Id, string razas,int especie)
         {
             int resultado = 0;
             const string sqlQueryRaza = "UDP_tbRazas_Update";
-
             var parameterRaza = new DynamicParameters();
             parameterRaza.Add("@raza_Id", raza_Id, DbType.Int32, ParameterDirection.Input);
             parameterRaza.Add("@raza_Descripcion", razas, DbType.String, ParameterDirection.Input);

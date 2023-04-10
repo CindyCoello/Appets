@@ -29,7 +29,6 @@ namespace Appets.DataAccess.Repositories
         }
 
 
-
         public tbComponentes Find(int id)
         {
             const string query = @"UDP_tbComponente_Find";
@@ -43,10 +42,7 @@ namespace Appets.DataAccess.Repositories
 
             }
 
-
         }
-
-
 
         public int Delete(int comp_Id)
         {
@@ -126,9 +122,6 @@ namespace Appets.DataAccess.Repositories
                 }
             }
         }
-
-
-
 
         public int Update(int idComp, string componente)
         {

@@ -22,10 +22,7 @@ namespace Appets.DataAccess.Repositories
             {
                 var resultado = db.Query<UDP_tbMascotas_SelectResult>(query, parameters, commandType: CommandType.StoredProcedure).ToList();
                 return resultado;
-
             }
-
-
         }
 
 
@@ -39,10 +36,7 @@ namespace Appets.DataAccess.Repositories
             {
                 var resultado = db.QueryFirstOrDefault<tbMascotas>(query, parameters, commandType: CommandType.StoredProcedure);
                 return resultado;
-
             }
-
-
         }
 
 
@@ -57,10 +51,7 @@ namespace Appets.DataAccess.Repositories
             {
                 var resultado = db.QueryFirstOrDefault<tbMascotas>(query, parameters, commandType: CommandType.StoredProcedure);
                 return resultado;
-
             }
-
-
         }
 
 
@@ -75,10 +66,7 @@ namespace Appets.DataAccess.Repositories
             {
                 var resultado = db.QueryFirstOrDefault<tbMascotas>(query, parameters, commandType: CommandType.StoredProcedure);
                 return resultado;
-
             }
-
-
         }
 
         public string Delete(int id)
@@ -158,9 +146,6 @@ namespace Appets.DataAccess.Repositories
             }
         }
 
-
-
-
         public int update(
             int masc_Id,
             string masc_Nombre,
@@ -235,8 +220,6 @@ namespace Appets.DataAccess.Repositories
             parameters.Add("@masc_Imagen", tbMascotas, DbType.String, ParameterDirection.Input);
             parameters.Add("@masc_Id", masc_Id, DbType.Int32, ParameterDirection.Input);
 
-
-
             using (var db = new SqlConnection(AppetsDbContext.ConnectionString))
             {
                 db.Open();
@@ -264,7 +247,6 @@ namespace Appets.DataAccess.Repositories
                 }
             }
         }
-
 
     }
 }

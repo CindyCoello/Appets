@@ -21,13 +21,8 @@ namespace Appets.DataAccess.Repositories
             {
                 var resultado = db.Query<UDP_tbFichaAdopcion_SelectResult>(query, parameters, commandType: CommandType.StoredProcedure).ToList();
                 return resultado;
-
             }
-
-
         }
-
-
 
         public tbFichaAdopcion Find(int id)
         {
@@ -39,10 +34,7 @@ namespace Appets.DataAccess.Repositories
             {
                 var resultado = db.QueryFirstOrDefault<tbFichaAdopcion>(query, parameters, commandType: CommandType.StoredProcedure);
                 return resultado;
-
             }
-
-
         }
 
         public string Delete(int id)
@@ -57,12 +49,8 @@ namespace Appets.DataAccess.Repositories
             }
         }
 
-
-
         public int Insert(int masc_Id, int per_Id, DateTime fecha)
         {
-           
-         
             int resultado = 0;
             const string sqlQueryEspc = "UDP_tbFichaAdopcion_Insert";
 
@@ -97,9 +85,6 @@ namespace Appets.DataAccess.Repositories
                 }
             }
         }
-
-
-
 
         public int Update(int ficha_Id, int masc_Id, int per_Id, DateTime fecha)
         {

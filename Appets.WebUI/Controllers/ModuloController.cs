@@ -16,8 +16,6 @@ namespace Appets.WebUI.Controllers
         private readonly ComponenteRepository _componenteRepository;
         private readonly ModuloRepository _moduloRepository;
        
-
-
         public ModuloController(ModuloRepository moduloRepository,
            ComponenteRepository componenteRepository )
         {

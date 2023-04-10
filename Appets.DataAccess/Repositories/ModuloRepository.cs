@@ -11,46 +11,30 @@ namespace Appets.DataAccess.Repositories
 {
     public class ModuloRepository
     {
-
-
         public  IEnumerable<tbModuloPantallas> ListModuloPantallas(int rolid)
         {
             const string query = @"UDP_tbModulos_ListadoRol";
             var parameters = new DynamicParameters();
             parameters.Add("@rol_Id", rolid, DbType.Int32, ParameterDirection.Input);
            
-
-
             using (var db = new SqlConnection(AppetsDbContext.ConnectionString))
             {
                var resultado = db.Query<tbModuloPantallas>(query, parameters, commandType: CommandType.StoredProcedure).ToList();
                 return resultado;
-
             }
-
-            
+ 
         }
-
-
 
         public IEnumerable<UDP_tbModulos_SelectResult> ModuloList()
         {
             const string query = @"UDP_tbModulos_Select";
             var parameters = new DynamicParameters();
-          
-
             using (var db = new SqlConnection(AppetsDbContext.ConnectionString))
             {
                 var resultado = db.Query<UDP_tbModulos_SelectResult>(query, parameters, commandType: CommandType.StoredProcedure).ToList();
                 return resultado;
-
             }
-
-
         }
-
-
-
 
         public tbModulos Find(int id)
         {
@@ -62,10 +46,7 @@ namespace Appets.DataAccess.Repositories
             {
                 var resultado = db.QueryFirstOrDefault<tbModulos>(query, parameters, commandType: CommandType.StoredProcedure);
                 return resultado;
-
             }
-
-
         }
 
         public int Insert(int comp_Id, string mod_Nombre)
@@ -105,8 +86,6 @@ namespace Appets.DataAccess.Repositories
         }
 
 
-
-
         public int Update(int mod_Id, int comp_Id , string mod_Nombre)
         {
             int resultado = 0;
@@ -143,8 +122,6 @@ namespace Appets.DataAccess.Repositories
                 }
             }
         }
-
-
 
     }
 }
