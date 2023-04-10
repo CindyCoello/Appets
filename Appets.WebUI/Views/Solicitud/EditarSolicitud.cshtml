@@ -1,0 +1,90 @@
+﻿@model SolicitudViewModel
+@{
+    ViewData["Title"] = "EditarSolicitud";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+
+
+    <style>
+        .control-label {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 1.1em;
+            font-weight: 400;
+        }
+    </style>
+</head>
+
+<form asp-route="SaveSolicitud" method="post">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <input type="hidden" id="solic_Id" asp-for="solic_Id" value="@ViewBag.solic_Id" />
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Nombre Completo</label>
+                                <input class="form-control" asp-for="solic_NombreCompleto" id="solic_NombreCompleto" type="text" maxlength="100" required />
+                                <span class="text-danger" id="ErrorMessage"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 ">
+                            <div class="form-group">
+                                <label class="control-label">Fecha de Solicitud</label>
+                                <input class="form-control" asp-for="solic_Fecha " id="solic_Fecha " type="date" />
+                                <span class="text-danger" id="ErrorMessage"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 ">
+                            <div class="form-group">
+                                <label class="control-label">Correo</label>
+                                <input class="form-control" asp-for="solic_Correo" id="solic_Correo" type="email" maxlength="100" required />
+                                <span class="text-danger" id="ErrorMessage"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 ">
+                            <div class="form-group">
+                                <label class="control-label">Mascota</label>
+
+                                <select asp-for="masc_Id" class="form-control" asp-items="Model.MascotaList">
+                                    <option>Seleccione una opcion</option>
+                                </select>
+                                <span asp-validation-for="masc_Id" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="form-group row m-t-20">
+                        <div class="col-12">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button class="btn btn-raised btn-primary"><i class="mdi mdi-content-save"></i><span>@(Model.solic_Id > 0 ? "Guardar Cambios" : "Guardar")</span></button>
+                            <a style="background-color:gray; color:white" asp-controller="Solicitud" asp-action="Index" class="btn btn-secundary">Cancelar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+@section Scripts{
+
+    <script src="~/js/Catalogo/list/list-ficha-solicitud.js"></script>
+
+}
+

@@ -1,0 +1,158 @@
+﻿@model PersonaViewModel
+@{
+    ViewData["Title"] = "EditarPersona";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+
+    <style>
+        .control-label {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 1.1em;
+            font-weight: 400;
+        }
+      
+
+    </style>
+</head>
+
+<form asp-route="SavePersona" method="post">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header" style="background-color: lightgrey;">
+                <a style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:1em;font-weight: 600; "> <img class="img-fluid" alt="persona" src="~/images/team.png" /> Registro de Personas</a>
+
+            </div>
+            <div class="card-body">
+                <input type="hidden" id="per_Id" asp-for="per_Id" value="@ViewBag.per_Id" />
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">Identidad</label>
+                                <input class="form-control" asp-for="per_Identidad" id="per_Identidad" type="text" maxlength="13" required />
+                                <span class="text-danger" id="ErrorMessage"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 ">
+                            <div class="form-group">
+                                <label class="control-label">Nombres</label>
+                                <input class="form-control" asp-for="per_Nombres" id="per_Nombres" type="text" maxlength="50" required />
+                                <span class="text-danger" id="ErrorMessage"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 ">
+                            <div class="form-group">
+                                <label class="control-label">Apellidos</label>
+                                <input class="form-control" asp-for="per_Apellidos" id="per_Apellidos" type="text" maxlength="50" />
+                                <span class="text-danger" id="ErrorMessage"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 ">
+                            <div class="form-group">
+                                <label class="control-label">Edad</label>
+                                <input class="form-control" asp-for="per_Edad" id="per_Edad" type="text" maxlength="50" required />
+                                <span class="text-danger" id="ErrorMessage"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 ">
+                            <div class="form-group">
+                                <label class="control-label">Fecha Nacimiento</label>
+                                <input class="form-control" asp-for="per_FechaNacimiento" id="per_FechaNacimiento" type="date" maxlength="50" />
+                                <span class="text-danger" id="ErrorMessage"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 ">
+                            <div class="form-group">
+                                <label class="control-label">Domicilio</label>
+                                <input class="form-control" asp-for="per_Domicilio" id="per_Domicilio" type="text" maxlength="100" required />
+                                <span class="text-danger" id="ErrorMessage"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 ">
+                            <div class="form-group">
+                                <label class="control-label">Teléfono</label>
+                                <input class="form-control" asp-for="per_Telefono" id="per_Telefono" type="text" maxlength="8" required />
+                                <span class="text-danger" id="ErrorMessage"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="form-group">
+                                <label class="control-label">Correo</label>
+                                <input class="form-control" asp-for="per_Correo" id="per_Correo" type="email" maxlength="100" required />
+                                <span class="text-danger" id="ErrorMessage"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label class="control-label">Adoptante</label>
+                                    <input class="form-control" asp-for="per_EsAdoptante" id="per_EsAdoptante" type="checkbox" />
+                                    <span class="text-danger" id="ErrorMessage"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label class="control-label">Donante</label>
+                                    <input class="form-control" asp-for="per_EsDonante" id="per_EsDonante" type="checkbox" />
+                                    <span class="text-danger" id="ErrorMessage"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label class="control-label">Empleado</label>
+                                    <input class="form-control" asp-for="per_EsEmpleado" id="per_EsEmpleado" type="checkbox" />
+                                    <span class="text-danger" id="ErrorMessage"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label class="control-label">Voluntario</label>
+                                    <input class="form-control" asp-for="per_EsVoluntario" id="per_EsVoluntario" type="checkbox" />
+                                    <span class="text-danger" id="ErrorMessage"></span>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </fieldset>
+                        <div class="form-group row m-t-20">
+                            <div class="col-12">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button class="btn btn-raised btn-primary"><i class="mdi mdi-content-save"></i><span>@(Model.per_Id > 0 ? "Guardar Cambios" : "Guardar")</span></button>
+                                <a style="background-color:gray;color:white" asp-controller="Persona" asp-action="Index" class="btn btn-secundary">Cancelar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</form>
+
+
+
+@section Scripts{
+
+    <script src="~/js/Catalogo/list/list-persona.js"></script>
+
+}
+

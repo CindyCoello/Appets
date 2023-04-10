@@ -1,0 +1,9 @@
+C:\Users\informatica\Desktop\Appets\Appets.DataAccess\bin\Debug\netcoreapp3.1\Appets.DataAccess.deps.json
+C:\Users\informatica\Desktop\Appets\Appets.DataAccess\bin\Debug\netcoreapp3.1\Appets.DataAccess.dll
+C:\Users\informatica\Desktop\Appets\Appets.DataAccess\bin\Debug\netcoreapp3.1\Appets.DataAccess.pdb
+C:\Users\informatica\Desktop\Appets\Appets.DataAccess\obj\Debug\netcoreapp3.1\Appets.DataAccess.AssemblyInfoInputs.cache
+C:\Users\informatica\Desktop\Appets\Appets.DataAccess\obj\Debug\netcoreapp3.1\Appets.DataAccess.AssemblyInfo.cs
+C:\Users\informatica\Desktop\Appets\Appets.DataAccess\obj\Debug\netcoreapp3.1\Appets.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\informatica\Desktop\Appets\Appets.DataAccess\obj\Debug\netcoreapp3.1\Appets.DataAccess.dll
+C:\Users\informatica\Desktop\Appets\Appets.DataAccess\obj\Debug\netcoreapp3.1\Appets.DataAccess.pdb
+C:\Users\informatica\Desktop\Appets\Appets.DataAccess\obj\Debug\netcoreapp3.1\Appets.DataAccess.csprojAssemblyReference.cache

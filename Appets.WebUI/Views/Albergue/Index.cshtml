@@ -1,0 +1,62 @@
+﻿@model AlbergueViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="card">
+    <div class="card-header">
+
+        <div class="float-left"><h3 style="font-family: Nunito,sans-serif; font-size:1.1em;font-weight: 600;">Listado de Albergues</h3></div>
+
+    </div>
+    <div class="card-body">
+
+        <table class="table table-striped table-bordered dt-responsive  nowrap" id="datatable">
+            <thead style="background-color:mediumpurple" class="text-center text-white">
+                <tr>
+                    <th>
+                        ID Albergue
+                    </th>
+                    <th>
+                        RTN
+                    </th>
+                    <th>
+                        Nombre
+                    </th>
+                    <th>
+                        Ubicación
+                    </th>
+                    <th>
+                        Teléfono
+                    </th>
+                    <th>
+                        Correo
+                    </th>
+                    <th>Acciones</th>
+
+                </tr>
+            </thead>
+
+        </table>
+
+    </div>
+</div>
+
+
+
+
+
+@section Scripts{
+
+
+    <script src="~/js/Catalogo/list/list-albergue.js"></script>
+    <script>
+        appConfig.Albergue.configureTable({ listUrl: "@Url.Action("AlbergList")" });
+
+    </script>
+}
+

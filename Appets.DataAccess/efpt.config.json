@@ -1,0 +1,171 @@
+﻿{
+   "CodeGenerationMode": 0,
+   "ContextClassName": "AppDbContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "Entities",
+   "ProjectRootNamespace": "Appets.DataAccess",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "[dbo].[tbAlbergue]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbComponentes]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbDonantes]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbEmpleados]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbEspecies]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbFichaAdopcion]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbFichaMedica]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbMascotas]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbModuloPantallas]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbModulos]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbOcupaciones]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbPersonas]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbProcedencia]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbRazas]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbRoles]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbRolModuloPantallas]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbSolicitud]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbUsuarios]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbVoluntarios]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[UDP_tbDonantes_Select]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_tbEmpleados_Select]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_tbFichaAdopcion_Select]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_tbFichaMedica_Select]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_tbMascotas_Select]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_tbModuloPantallaByRol]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_tbModuloPantallas_Select]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_tbModulos_Select]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_tbPersonas_EsAdoptante]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_tbPersonas_EsDonante]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_tbPersonas_EsEmpleado]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_tbPersonas_EsVoluntario]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_tbRazas_Select]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_tbSolicitud_Select]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_tbUsuarios_Select]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_tbVoluntarios_Select]",
+         "ObjectType": 1
+      }
+   ],
+   "UiHint": "PC1\\SQLEXPRESS.Appets",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": true,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseNoConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSpatial": false
+}

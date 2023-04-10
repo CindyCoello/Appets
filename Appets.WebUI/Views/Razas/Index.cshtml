@@ -1,0 +1,107 @@
+﻿@model RazaViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+
+        <div class="float-left"><h3 style="font-family: Nunito,sans-serif; font-size:1.1em;font-weight: 600;">Listado de Razas</h3></div>
+
+    </div>
+    <div class="card-body">
+
+        <table class="table table-striped table-bordered dt-responsive  nowrap" id="datatable">
+            <thead  style="background-color:mediumpurple" class="text-center  text-white">
+                <tr>
+                    <th>
+                        ID Raza
+                    </th>
+                    <th>
+                        Nombre Raza
+                    </th>
+                    <th>
+                        Nombre Especie
+                    </th>
+                    <th>Acciones</th>
+
+                </tr>
+            </thead>
+
+        </table>
+
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form asp-route="SaveRaza" method="post" autocomplete="off"
+                  data-ajax-begin="appConfig.Catalogs.begin"
+                  data-ajax-success="appConfig.Catalogs.success"
+                  data-ajax-failure="appConfig.Catalogs.failure"
+                  data-ajax-complete="appConfig.Catalogs.complete">
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="raza_Id" id="item-id" />
+
+                <div class="modal-body">
+                    <div class="form-row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="raza_Descripcion" class="control-label"></label>
+                                <input asp-for="raza_Descripcion" class="form-control" maxlength="100" />
+                                <span class="text-danger" asp-validation-for="raza_Descripcion"></span>
+                            </div>
+                        </div>
+                         <div class="col-md-12">
+                            <div class="form-group">
+                                <label asp-for="espc_Id" class="control-label"></label>
+                                <select asp-for="espc_Id" class="form-control" asp-items="Model.EspecieList">
+                                    <option>Seleccione una opcion</option>
+                                </select>
+                                <span class="text-danger" asp-validation-for="espc_Id"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary"></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts{
+
+
+    <script src="~/js/Catalogo/list/list-razas.js"></script>
+    <script>
+        appConfig.Razas.configureTable({ listUrl: "@Url.Action("RazacList")" });
+
+    </script>
+
+    <script>
+        appConfig.Catalogs.configure({
+
+            displayName: "razas",
+            getUrl: "@Url.Action("GetRaza")"
+
+        });
+
+    </script>
+}
+
+

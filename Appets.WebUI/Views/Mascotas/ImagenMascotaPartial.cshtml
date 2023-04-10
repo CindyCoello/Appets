@@ -1,0 +1,111 @@
+﻿@model CambiarImagen
+
+
+    <style>
+            #img {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 200px;
+                height: 200px;
+               border-radius: 150px;
+                border: 2px solid #666;
+            }
+
+            #lblImageFile {
+                border: 2px solid #666;
+            }
+
+            .custom-file-input {
+                background-color: springgreen;
+            }
+
+            .card {
+                background-color: lavender;
+            }
+        p.texto {
+            text-align: center;
+            font-size: 2em;
+            font-weight: 500;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+      
+    </style>
+<div class="card" style="max-width:70%">
+    <div class="card-header" style="background-color: lightgrey;max-height:30%">
+        <a style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:1em;font-weight: 600; "> <img class="img-fluid" alt="camara image" src="~/images/camera.png" />  Perfil de Mascota </a>
+    </div>
+    <form asp-controller="Mascotas" asp-action="CambiarImagen" method="post" enctype="multipart/form-data">
+        <input id="masc_Id" type="hidden" asp-for="masc_Id" />
+        <div class="card-body">
+
+            <p class="text-muted small">Actualize la foto de la mascota.</p>
+            <div>
+                <img src="@Model.MascotaPriview" height="200" alt="" id="img" >
+                
+            </div>
+            <p class="texto">@Model.nombreMascota</p>
+            <div class="row">
+                <div class="col-sm-9">
+                    <br />
+                    <p>Seleccione una imagen(.jpg, .png, gif)con un tamaño menor de 2MB(2,048 KB).</p>
+                    <div class="custom-file">
+                        <input asp-for="ImageFile" type="file" class="custom-file-input"  onchange="previewFile()" id="file"/>
+                        <label id="lblImageFile" asp-for="ImageFile" class="custom-file-label" accept="imagen/png, imagen/jpeg, imagen/gif">Seleccione una imagen.....</label>
+
+                        <span asp-validation-for="ImageFile" class="text-danger"></span>
+                       
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+        <div class="card-footer" style="background-color:skyblue;">
+            <button type="submit" class="btn btn-raised btn-primary">
+                <i class="mdi mdi-refresh"></i><span>@(Model.masc_Id> 0 ? "Cambiar Imagen":"Guardar Imagen")</span>
+            </button>
+            <a style="background-color:gray;color:white" asp-controller="Mascotas" asp-action="Index" class="btn btn-secundary">Cancelar</a>
+        </div>
+    </form>
+
+</div>
+
+
+<script type="text/javascript">
+        //extensiones de las imagenes
+        var extensionesPermitidas = /(.png|.jpg|.jpge|.PNG|.JPG|.JPGE)$/i;
+
+        function previewFile() {
+            //se pasa el 'img' a una variable
+            var preview = document.getElementById('img');
+            //se para el archivo seleccionado a una variable
+            var file = document.getElementById('file').files[0];
+            //se obtiene la direccion de la imagen
+            var archivoRuta = document.getElementById('file').value;
+
+            //validacion de la extension de la imagen
+            if (!extensionesPermitidas.exec(archivoRuta)) {
+                alert('Extension del archivo no valida');
+                document.getElementById('file').value = '';
+                return false;
+            }
+            else {
+                //El FileReader permite leer los ficheros almacenados en el cliente
+                var reader = new FileReader();
+
+                //onloadend: es un EventHandler que representa el código cuando el progreso se ha detenido en la carga de un recurso.
+                reader.onloadend = function () {
+                    //se accede al src del <img> y se agrega la direccion
+                    preview.src = reader.result;
+                }
+
+                if (file) {
+                    //es usado para leer el contenido del especificado File
+                    reader.readAsDataURL(file);
+                } else {
+                    preview.src = "";
+                }
+            }
+
+        }
+</script>

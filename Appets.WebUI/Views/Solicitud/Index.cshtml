@@ -1,0 +1,135 @@
+﻿@model SolicitudViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+
+        <div class="float-left"><h3 style="font-family: Nunito,sans-serif; font-size:1.1em;font-weight: 600;">Listado de Ficha Solicitud Adopción</h3></div>
+
+    </div>
+    <div class="card-body">
+
+        <table class="table table-striped table-bordered dt-responsive  nowrap" id="datatable">
+            <thead style="background-color:mediumpurple" class="text-center  text-white">
+                <tr>
+                    <th>
+                        ID Solicitud
+                    </th>
+                    <th>
+                        Correo
+                    </th>
+                    <th>
+                        Nombre Completo
+                    </th>
+
+                    <th>
+                        Fecha
+                    </th>
+
+                    <th>
+                        Nombre Mascota
+                    </th>
+                    <th>Acciones</th>
+
+                </tr>
+            </thead>
+
+        </table>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form asp-route="SaveSolicitud" method="post" autocomplete="off"
+                  data-ajax-begin="appConfig.Catalogs.begin"
+                  data-ajax-success="appConfig.Catalogs.success"
+                  data-ajax-failure="appConfig.Catalogs.failure"
+                  data-ajax-complete="appConfig.Catalogs.complete">
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="solic_Id" id="item-id" />
+
+                <div class="modal-body">
+                    <div class="form-row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+
+
+
+                                <label asp-for="solic_Correo " class="control-label"></label>
+                                <input asp-for="solic_Correo" class="form-control" />
+                                <span class="text-danger" asp-validation-for="solic_Correo"></span>
+
+                                <br />
+
+                                <label asp-for="solic_NombreCompleto " class="control-label"></label>
+                                <input asp-for="solic_NombreCompleto" class="form-control" />
+                                <span class="text-danger" asp-validation-for="solic_NombreCompleto"></span>
+
+                                <br />
+                                <label asp-for="solic_Fecha " class="control-label"></label>
+                                <input asp-for="solic_Fecha" class="form-control" />
+                                <span class="text-danger" asp-validation-for="solic_Fecha"></span>
+
+                                <br />
+                                <label asp-for="masc_Id " class="control-label"></label>
+                                <select asp-for="masc_Id" class="form-control" asp-items="Model.MascotaList">
+                                    <option>Seleccione una Mascota</option>
+                                </select>
+                                <span class="text-danger" asp-validation-for="masc_Id"></span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary"></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts{
+
+
+    <script src="~/js/Catalogo/list/list-ficha-solicitud.js"></script>
+
+    <script>
+        appConfig.FichaSolicitud.configureTable({ listUrl: "@Url.Action("SolicitudList")" });
+
+    </script>
+
+    <script>
+        appConfig.Catalogs.configure({
+
+            displayName: "Solicitud Adopción",
+            getUrl: "@Url.Action("GetSolicitud")"
+
+        });
+
+    </script>
+}
+
+
+

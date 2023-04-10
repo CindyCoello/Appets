@@ -1,0 +1,128 @@
+﻿@model EditarUsuario
+
+
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+
+    <style>
+        .control-label {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 1.1em;
+            font-weight: 400;
+        }
+    </style>
+</head>
+
+
+    <form asp-action="EditarUsuario1" method="post">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header" style="background-color: lightgrey";>
+                    <a style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:1em;font-weight: 600; "> <img class="img-fluid" alt="macota image" src="~/images/user.png" /> Registro de Usuarios </a>
+                </div>
+                <div class="card-body">
+                    <input type="hidden" id="usu_Id" asp-for="usu_Id" value="@ViewBag.usu_Id" />
+                    <div class="portlet-body">
+                        <div class="row">
+                         
+                            
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Identidad</label>
+                                        <input class="form-control" asp-for="usu_Identidad" id="usu_Identidad" type="text" maxlength="13" required />
+                                        <span class="text-danger" id="ErrorMessage"></span>
+                                    </div>
+                                </div>
+                         
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label class="control-label">Primer Nombre</label>
+                                    <input class="form-control" asp-for="usu_PrimerNombre" id="usu_PrimerNombre" type="text" maxlength="50" required />
+                                    <span class="text-danger" id="ErrorMessage"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label class="control-label">Segundo Nombre</label>
+                                    <input class="form-control" asp-for="usu_SegundoNombre" id="usu_SegundoNombre" type="text" maxlength="50" />
+                                    <span class="text-danger" id="ErrorMessage"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label class="control-label">Primer Apellido</label>
+                                    <input class="form-control" asp-for="usu_PrimerApellido" id="usu_PrimerApellido" type="text" maxlength="50" required />
+                                    <span class="text-danger" id="ErrorMessage"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label class="control-label">Segundo Apellido</label>
+                                    <input class="form-control" asp-for="usu_SegundoApellido" id="usu_SegundoApellido" type="text" maxlength="50" />
+                                    <span class="text-danger" id="ErrorMessage"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label class="control-label">Telefono</label>
+                                    <input class="form-control" asp-for="usu_Telefono" id="usu_Telefono" type="text" maxlength="8" required />
+                                    <span class="text-danger" id="ErrorMessage"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 ">
+                                <div class="form-group">
+                                    <label asp-for="rol_Id" class="control-label"></label>
+                                    <select asp-for="rol_Id" class="form-control" asp-items="Model.Usuariolist">
+                                        <option>Seleccione una opcion</option>
+                                    </select>
+                                    <span asp-validation-for="rol_Id" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        @if (Model.usu_Id > 0)
+                        {
+
+                        }
+                        else
+                        {<div class="row">
+                                <div class="col-md-12">
+
+                                    <div class="form-group">
+                                        <label class="control-label">Contraseña</label>
+                                        <input class="form-control" asp-for="usu_Contraseña" id="usu_Contraseña" type="password" maxlength="50" required />
+                                        <span class="text-danger" id="ErrorMessage"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        <div class="form-group row m-t-20">
+                            <div class="col-12">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button class="btn btn-primary btn-raised"><i class="mdi mdi-content-save"></i><span>@(Model.usu_Id > 0 ? "Guardar Cambios" : "Guardar")</span></button>
+                                <a style="background-color:gray;color:white" asp-controller="Usuarios" asp-action="Index" class="btn btn-secundary">Cancelar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+    @section Scripts{
+
+        <script src="~/js/Seguridad/list/list-usuario.js"></script>
+
+    }

@@ -1,0 +1,117 @@
+﻿@model AlbergueViewModel
+@{
+    ViewData["Title"] = "EditarAlbergue";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+
+    <style>
+        .control-label {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 1.1em;
+            font-weight: 400;
+        }
+    </style>
+</head>
+
+
+
+<form asp-route="SaveAlbergue" method="post">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header" style="background-color: lightgrey;max-height:30%">
+              
+                <a style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:1em;font-weight: 600; "> <img class="img-fluid" src="~/images/animal-shelter.png" alt="Albergue" /> Registro de Albergue </a>
+            </div>
+            <div class="card-body">
+                <input type="hidden" id="alberg_Id" asp-for="alberg_Id" value="@ViewBag.alberg_Id" />
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Nombre Albergue</label>
+                                <input class="form-control" asp-for="alberg_Nombre" id="alberg_Nombre" type="text" maxlength="100" required />
+                                <span class="text-danger" id="ErrorMessage"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 ">
+                            <div class="form-group">
+                                <label class="control-label">RTN</label>
+                                <input class="form-control" asp-for="alberg_RTN" id="alberg_RTN" type="text" maxlength="13" required />
+                                <span class="text-danger" id="ErrorMessage"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 ">
+                            <div class="form-group">
+                                <label class="control-label">Ubicación</label>
+                                <input class="form-control" asp-for="alberg_Ubicacion" id="alberg_Ubicacion" type="text" maxlength="100" required />
+                                <span class="text-danger" id="ErrorMessage"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 ">
+                            <div class="form-group">
+                                <label class="control-label">Teléfono</label>
+                                <input class="form-control" asp-for="alberg_Telefono" id="alberg_Telefono" type="text" maxlength="8" required />
+                                <span class="text-danger" id="ErrorMessage"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 ">
+                            <div class="form-group">
+                                <label class="control-label">Correo</label>
+                                <input class="form-control" asp-for="alberg_Correo" id="alberg_Correo" type="email" maxlength="100" required />
+                                <span class="text-danger" id="ErrorMessage"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 ">
+                            <div class="form-group">
+                                <label class="control-label">Misión</label>
+                                <input class="form-control" asp-for="alberg_Mision" id="alberg_Mision" type="text" maxlength="100" required />
+                                <span class="text-danger" id="ErrorMessage"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="form-group">
+                                <label class="control-label">Información Adicional</label>
+                                <textarea class="form-control" asp-for="alberg_InformacionAdicion" id="alberg_InformacionAdicion" type="text" maxlength="100"></textarea>
+                                <span class="text-danger" id="ErrorMessage"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group row m-t-20">
+                        <div class="col-12">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button class="btn btn-raised btn-primary"><i class="mdi mdi-content-save"></i><span>@(Model.alberg_Id > 0 ? "Guardar Cambios" : "Guardar")</span></button>
+                            <a style="background-color:gray;color:white" asp-controller="Albergue" asp-action="Index" class="btn btn-secundary">Cancelar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+@section Scripts{
+
+    <script src="~/js/Catalogo/list/list-albergue.js"></script>
+
+}
+

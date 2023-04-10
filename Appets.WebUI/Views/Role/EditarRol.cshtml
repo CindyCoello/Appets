@@ -1,0 +1,111 @@
+﻿
+@model RoleViewModel
+
+@{
+    ViewData["Title"] = "EditarRol";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<div class="col-12">
+
+    <div class="card">
+        <div class="card-body">*@
+<form asp-route="SaveRole" method="post">
+    <input type="hidden" id="rol_Id" asp-for="rol_Id" value="@ViewBag.rol_Id" />
+    <div class="portlet-body">
+        <div class="row">
+            <div class="col-md-4">
+                <h3 class="mb-1">Informacion del rol</h3>
+                <p class="text-muted small">Ingrese un nombre único que describa el proposito del rol</p>
+
+                <div class="form-group">
+                    <label class="control-label">Nombre Rol</label>
+                    <input class="form-control" asp-for="rol_Nombre" id="rol_Nombre" type="text" maxlength="50" required />
+                    <span class="text-danger" id="messageError"></span>
+
+                </div>
+            </div>
+
+
+            <div class="col-md-7 offset-1">
+                <h3 class="mb-1">Seleccione los permisos del rol</h3>
+                <p class="text-muted small">Módulos y acciones disponibles dentro de los componentes.</p>
+                <input type="hidden" asp-for="ModuleItemsInput" />
+
+                <div id="components-tree">
+
+                    <ul>
+                        @foreach (var componente in Model.ComponentesTree.OrderBy(x => x.comp_Nombre))
+
+                        {
+                            <li data-jstree='{"icon":"la la-archive text-primary"}'>
+                                <strong>@componente.comp_Nombre</strong>
+                                <ul>
+                                    @foreach (var modulo in Model.ModulosTree.OrderBy(x => x.mod_Nombre).Where(x => x.comp_Id == componente.comp_Id))
+                                    {
+
+                                        <li data-jstree='{"icon":"la la-folder text-warning"}'>
+                                            <span class="sbold">@modulo.mod_Nombre</span>
+
+                                            <ul>
+
+
+                                                @foreach (var pantalla in Model.ModuloPantallasTree.OrderBy(x => x.modpan_Nombre).Where(x => x.mod_Id == modulo.mod_Id))
+                                                {
+                                                    <li id="item-@pantalla.modpan_Id" data-id="@pantalla.modpan_Id" data-jstree='{"icon":"la la-file text-info"}'>
+
+                                                        @pantalla.modpan_Nombre
+                                                    </li>
+                                                }
+
+                                            </ul>
+
+                                        </li>
+                                    }
+
+
+                                </ul>
+
+
+                            </li>
+                        }
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row-m-t-20">
+            <div class="col-12">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <button class="btn btn-primary"><i class="mdi mdi-content-save"></i><span> @(Model.rol_Id>0?"Guardar cambios": "Guardar")</span></button>
+                <a asp-controller="Role" asp-action="Roles" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </div>
+    </div>
+</form>
+@*</div>
+
+        </div>
+
+    </div>*@
+
+
+
+<script>appConfig.alert('')</script>
+@section Scripts{
+
+
+    <link href="~/plugins/jstree/themes/default/style.css" rel="stylesheet" />
+    <script src="~/plugins/jstree/jstree.min.js"></script>
+    <script src="~/js/Seguridad/list/list-roles.js"></script>
+
+    <script>appConfig.Roles.configureRole();</script>
+
+}
+
+

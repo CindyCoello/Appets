@@ -1,0 +1,370 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor contextAccessor
+@{
+    string pantallas = contextAccessor.HttpContext.Session.GetString("pantallas");
+    string hola = string.Empty;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title>Appets</title>
+    <meta content="Admin Dashboard" name="description" />
+    <meta content="Themesbrand" name="author" />
+    <link rel="shortcut icon" href="~/images/favicon.ico">
+
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="~/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="~/css/style.css" rel="stylesheet" type="text/css">
+
+    <!-- Alerts-->
+    <link href="~/plugins/toastr/toastr.css" rel="stylesheet" type="text/css" />
+    <!-- DataTables -->
+    <link href="~/plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/plugins/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <!-- Responsive datatable examples -->
+    <link href="~/plugins/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    <!-- Navigation Bar-->
+    <header id="topnav">
+        <div class="topbar-main">
+            <div class="container-fluid">
+
+                <!-- Logo container-->
+                <div class="logo">
+
+                    <a href="index.html" class="logo">
+                        <img src="~/images/logo-sm-light.png" alt="" class="logo-small">
+                        <img src="~/images/logo-light.png" alt="" class="logo-large">
+                    </a>
+
+                </div>
+
+                <!-- End Logo container-->
+
+
+                <div class="menu-extras topbar-custom">
+
+                    <ul class="navbar-right d-flex list-inline float-right mb-0">
+                        <li class="dropdown notification-list d-none d-sm-block">
+                            <form role="search" class="app-search">
+                                <div class="form-group mb-0">
+                                    <input type="text" class="form-control" placeholder="Search..">
+                                    <button type="submit"><i class="fa fa-search"></i></button>
+                                </div>
+                            </form>
+                        </li>
+
+                        <li class="dropdown notification-list">
+                            <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                <i class="mdi mdi-bell noti-icon"></i>
+                                <span class="badge badge-pill badge-info noti-icon-badge">3</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg">
+                                <!-- item-->
+                                <h6 class="dropdown-item-text">
+                                    Notifications (37)
+                                </h6>
+                                <div class="slimscroll notification-item-list">
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item active">
+                                        <div class="notify-icon bg-success"><i class="mdi mdi-cart-outline"></i></div>
+                                        <p class="notify-details">Your order is placed<span class="text-muted">Dummy text of the printing and typesetting industry.</span></p>
+                                    </a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <div class="notify-icon bg-warning"><i class="mdi mdi-message"></i></div>
+                                        <p class="notify-details">New Message received<span class="text-muted">You have 87 unread messages</span></p>
+                                    </a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <div class="notify-icon bg-info"><i class="mdi mdi-flag"></i></div>
+                                        <p class="notify-details">Your item is shipped<span class="text-muted">It is a long established fact that a reader will</span></p>
+                                    </a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <div class="notify-icon bg-primary"><i class="mdi mdi-cart-outline"></i></div>
+                                        <p class="notify-details">Your order is placed<span class="text-muted">Dummy text of the printing and typesetting industry.</span></p>
+                                    </a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <div class="notify-icon bg-danger"><i class="mdi mdi-message"></i></div>
+                                        <p class="notify-details">New Message received<span class="text-muted">You have 87 unread messages</span></p>
+                                    </a>
+                                </div>
+                                <!-- All-->
+                                <a href="javascript:void(0);" class="dropdown-item text-center text-primary">
+                                    View all <i class="fi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="dropdown notification-list">
+                            <div class="dropdown notification-list">
+                                <a class="dropdown-toggle nav-link arrow-none waves-effect nav-user waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                    <img src="~/images/users/user-4.jpg" alt="user" class="rounded-circle">
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+                                    <!-- item-->
+                                    <a class="dropdown-item" href="#"><i class="mdi mdi-account-circle m-r-5"></i> Profile</a>
+                                    <a class="dropdown-item" href="#"><i class="mdi mdi-wallet m-r-5"></i> My Wallet</a>
+                                    <a class="dropdown-item d-block" href="#"><span class="badge badge-success float-right">11</span><i class="mdi mdi-settings m-r-5"></i> Settings</a>
+                                    <a class="dropdown-item" href="#"><i class="mdi mdi-lock-open-outline m-r-5"></i> Lock screen</a>
+                                    <div class="dropdown-divider"></div>
+                                    @*<a class="dropdown-item text-danger" href="~/Account/Login"><i class="mdi mdi-power text-danger"></i> Logout</a>*@
+                                    <a class="dropdown-item text-danger" asp-action="Login" asp-controller="Account"><i class="mdi mdi-power text-danger"></i> Cerrar sesión</a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="menu-item list-inline-item">
+                            <!-- Mobile menu toggle-->
+                            <a class="navbar-toggle nav-link">
+                                <div class="lines">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </a>
+                            <!-- End mobile menu toggle-->
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- end menu-extras -->
+
+                <div class="clearfix"></div>
+
+            </div> <!-- end container -->
+        </div>
+        <!-- end topbar-main -->
+        <!-- MENU Start -->
+        <div class="navbar-custom">
+            <div class="container-fluid">
+                <div id="navigation">
+                    <!-- Navigation Menu-->
+                    <ul class="navigation-menu">
+
+                        <li class="has-submenu">
+
+                        </li>
+
+                        <li class="has-submenu">
+                            <a href="#"><i class="mdi mdi-lock"></i>Seguridad</a>
+                            <ul class="submenu">
+                                @if (pantallas.Contains("Listado de Usuarios") || pantallas.Contains("Crear Usuarios") || pantallas.Contains("Listado de Componentes") || pantallas.Contains("Listado Modulos")
+                                  || pantallas.Contains("Listado de Roles") || pantallas.Contains("Listado Mascotas")  || pantallas.Contains("Crear Mascotas") || pantallas.Contains("Editar Mascotas"))
+                                {
+
+
+                                    @if (pantallas.Contains("Listado de Usuarios") || pantallas.Contains("Crear Usuarios") || pantallas.Contains("Editar Usuarios"))
+                                    {
+                                        <li><a asp-action="Index" asp-controller="Usuarios">Usuarios</a> </li>
+
+                                    }
+
+                                    @if (pantallas.Contains("Listado de Roles") || pantallas.Contains("Listado de Componentes") || pantallas.Contains("Listado Modulos") || pantallas.Contains("Listado Pantallas"))
+                                    {
+                                        <li><a asp-action="Roles" asp-controller="Role">Roles</a> </li>
+                                        <li><a asp-action="Index" asp-controller="Componente">Componente</a> </li>
+                                        <li><a asp-action="Index" asp-controller="Modulo">Modulo</a> </li>
+                                        <li><a asp-action="Index" asp-controller="ModuloPantallas">Modulo Pantallas</a> </li>
+                                    }
+
+                                }
+                            </ul>
+                        </li>
+
+                        <li class="has-submenu">
+                            <a href="#"><i class="ion-person-stalker"></i>Administración</a>
+                            <ul class="submenu megamenu">
+                                @if (pantallas.Contains("Listado Albergue") || pantallas.Contains("Crear Albergue") || pantallas.Contains("Editar Albergue") || pantallas.Contains("Listado Ficha Medica")
+                                 || pantallas.Contains("Listado Personas") || pantallas.Contains("Crear Personas") || pantallas.Contains("Editar Personas") || pantallas.Contains("Listado Empleado")
+                                 || pantallas.Contains("Crear Empleado") || pantallas.Contains("Editar Empleado") || pantallas.Contains("Listado Voluntarios") || pantallas.Contains("Crear Voluntarios")
+                                 || pantallas.Contains("Editar Voluntarios") || pantallas.Contains("Listado Cargos") || pantallas.Contains("Crear Cargos") || pantallas.Contains("Editar Cargos")
+                                 || pantallas.Contains("Listado Donantes") || pantallas.Contains("Crear Donantes") || pantallas.Contains("Editar Donantes") || pantallas.Contains("Listado Solicitud Adopcion")
+                                 || pantallas.Contains("Crear Solicitud Adopcion") || pantallas.Contains("Editar Solicitud Adopcion"))
+                                {
+                                    <li>
+                                        <ul>
+
+                                            <li><a asp-action="Index" asp-controller="Albergue">Albergue</a> </li>
+                                            <li><a asp-action="Index" asp-controller="Persona">Personas</a> </li>
+                                            <li><a asp-action="Index" asp-controller="Empleado">Empleados</a> </li>
+                                            <li><a asp-action="Index" asp-controller="Voluntario">Voluntarios</a> </li>
+                                            <li><a asp-action="Index" asp-controller="Ocupacion">Cargos</a> </li>
+                                            <li><a asp-action="Index" asp-controller="Donante">Donantes</a> </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <ul>
+
+                                            <li><a asp-action="Index" asp-controller="FichaAdopcion">Ficha Adopción</a> </li>
+                                            <li><a asp-action="Index" asp-controller="Solicitud">Solicitud Adopción</a> </li>
+                                        </ul>
+                                    </li>
+                                }
+                            </ul>
+                              
+                        </li>
+
+
+                        <li class="has-submenu">
+                            <a href="#"><i class="ion-medkit"></i>Veterinaria</a>
+                            <ul class="submenu megamenu">
+                                @if (pantallas.Contains("Listado Mascotas") || pantallas.Contains("Crear Mascotas") || pantallas.Contains("Editar Mascotas") || pantallas.Contains("Listado Ficha Medica")
+                                  || pantallas.Contains("Crear Ficha Medica") || pantallas.Contains("Editar Ficha Medica") || pantallas.Contains("Listado Especies") || pantallas.Contains("Crear Especies")
+                                  || pantallas.Contains("Editar Especies")   || pantallas.Contains("Listado Razas") || pantallas.Contains("Crear Razas") || pantallas.Contains("Editar Razas")
+                                  || pantallas.Contains("Liatado Procedencias") || pantallas.Contains("Crear Procedencias") || pantallas.Contains("Editar Procedencias"))
+                                {
+                                    <li>
+                                        <ul>
+                                            @if (pantallas.Contains("Listado Mascotas") || pantallas.Contains("Crear Mascotas") || pantallas.Contains("Editar Mascotas") || pantallas.Contains("Listado Ficha Medica")
+                                           || pantallas.Contains("Crear Ficha Medica") || pantallas.Contains("Editar Ficha Medica") || pantallas.Contains("Listado Especies") || pantallas.Contains("Crear Especies")
+                                           || pantallas.Contains("Editar Especies") || pantallas.Contains("Listado Razas") || pantallas.Contains("Crear Razas") || pantallas.Contains("Editar Razas")
+                                           || pantallas.Contains("Liatado Procedencias") || pantallas.Contains("Crear Procedencias") || pantallas.Contains("Editar Procedencias"))
+                                            {
+                                                @if (pantallas.Contains("Listado Mascotas") || pantallas.Contains("Crear Mascotas") || pantallas.Contains("Editar Mascotas"))
+                                                {
+                                                    <li><a asp-action="Index" asp-controller="Mascotas">Mascotas</a> </li>
+                                                }
+                                                    <li><a asp-action="Index" asp-controller="FichaMedica">Ficha Medica</a> </li>
+                                                    <li><a asp-action="Index" asp-controller="Especies">Especies</a> </li>
+                                                    <li><a asp-action="Index" asp-controller="Razas">Razas</a> </li>
+                                                    <li><a asp-action="Index" asp-controller="Procedencia">Procedencia</a> </li>
+                                                }
+                                            </ul>
+                                    </li>
+                                }
+
+                            </ul>
+                        </li>
+
+
+
+
+                    </ul>
+                    <!-- End navigation menu -->
+                </div> <!-- end #navigation -->
+            </div> <!-- end container -->
+        </div> <!-- end navbar-custom -->
+    </header>
+    <!-- End Navigation Bar-->
+    <!-- page wrapper start -->
+    <div class="wrapper">
+        <div class="page-title-box">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="state-information d-none d-sm-block">
+                            <div class="state-graph">
+                                <div id="header-chart-1"></div>
+                                <div class="info"></div>
+                            </div>
+                            <div class="state-graph">
+                                <div id="header-chart-2"></div>
+                                <div class="info"></div>
+                            </div>
+                        </div>
+
+                        <h4 class="page-title">Appets</h4>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0);"></a></li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0);"></a></li>
+                            <li class="breadcrumb-item active"></li>
+                        </ol>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end container-fluid -->
+
+        </div>
+        <!-- page-title-box -->
+
+        <div class="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card" style="background-color:#f3f3f3;">
+                            <div class="card-body">
+                                <!-- Demo purpose only -->
+                                <div style="min-height: 800px;">
+                                    <!--<p>Your content here</p>-->
+                                    @RenderBody()
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- end page content-->
+
+    </div>
+    <!-- page wrapper end -->
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    2018 © Appets <span class="d-none d-sm-inline-block"> - Adopta <i class="mdi mdi-heart text-danger"></i> una Mascota</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+    <!-- jQuery  -->
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/metisMenu.min.js"></script>
+    <script src="~/js/jquery.slimscroll.js"></script>
+    <script src="~/js/waves.min.js"></script>
+
+    <script src="~/plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <script src="~/plugins/jquery-validation/jquery.validate.js"></script>
+    <script src="~/plugins/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/plugins/jquery-validation-unobtrusive/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/plugins/toastr/toastr.min.js"></script>
+    <script src="~/plugins/ladda/spin.min.js"></script>
+    <script src="~/plugins/ladda/ladda.min.js"></script>
+
+    <!-- Required datatable js -->
+    <script src="~/plugins/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/plugins/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/plugins/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+    <script src="~/plugins/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/plugins/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="~/plugins/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+
+
+    <script src="~/plugins/jszip/jszip.min.js"></script>
+    <script src="~/plugins/pdfmake/build/pdfmake.min.js"></script>
+    <script src="~/plugins/pdfmake/build/vfs_fonts.js"></script>
+
+    <!-- App js -->
+    <script src="~/js/app.js"></script>
+    <!-- main-->
+    <script src="~/js/main.js"></script>
+
+
+    <script src="~/js/Catalogo/catalogs.js"></script>
+    <script src="~/js/Catalogo/llenar-dropdow-list.js"></script>
+
+
+    @Html.ShowAlert()
+    @RenderSection("Scripts", required: false)
+
+</body>
+
+</html>

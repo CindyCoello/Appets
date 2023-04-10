@@ -1,0 +1,26 @@
+﻿
+@model MascotasViewModel
+
+@{
+    ViewData["Title"] = "Mascotas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="row">
+    <div class="col-md-6">
+        <partial name="MascotaAccionPartial" model="@Model.AccionMascota">
+    </div>
+
+    @if (Model.CambiarImagen.masc_Id > 0)
+    {
+        <div class="col-md-6">
+            <partial name="ImagenMascotaPartial" model="@Model.CambiarImagen">
+        </div>
+    }
+
+
+
+</div>
+

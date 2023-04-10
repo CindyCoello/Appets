@@ -1,0 +1,31 @@
+﻿@model UsuariosViewModel
+
+@{
+    ViewData["Title"] = "Usuarios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<div class="card">
+    <div class="card-header">
+
+    </div>*@
+
+    @*<div class="card-body">*@
+
+
+        <div class="row">
+            <div class="col-md-6">
+                <partial name="EditarUsuarioPartial" model="@Model.EditarUsuario">
+            </div>
+
+            @if (Model.EditarUsuario.usu_Id > 0)
+            {
+                <div class="col-md-6">
+                    <partial name="CambiarContraseñaPartial" model="@Model.CambiarContraseña">
+                </div>
+            }
+
+
+        </div>
+    @*</div>*@
+@*</div>*@
