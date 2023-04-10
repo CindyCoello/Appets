@@ -16,7 +16,6 @@ namespace Appets.WebUI.Controllers
 
         private readonly EspeciesRepository _especiesRepository;
 
-
         public EspeciesController(EspeciesRepository especiesRepository)
         {
             _especiesRepository = especiesRepository;
@@ -34,8 +33,6 @@ namespace Appets.WebUI.Controllers
 
             return Json(new
             {
-
-
                 data = lista.Select(x => new {
 
                     espc_Id = x.espc_Id,
@@ -51,8 +48,6 @@ namespace Appets.WebUI.Controllers
 
         public IActionResult EditarEspecie(EspeciesViewModel model)
         {
-
-
             if (ModelState.IsValid)
             {
                 int result = 0;
@@ -65,7 +60,6 @@ namespace Appets.WebUI.Controllers
                     {
                         ShowAlert("Registro Ingresado Correctamente", AlertMessageType.Success);
                         return RedirectToAction("Index");
-
                     }
 
                     else
@@ -98,14 +92,7 @@ namespace Appets.WebUI.Controllers
 
             }
             return RedirectToAction("Index");
-
-
         }
-
-        //public IActionResult EditarEspecie(EspeciesViewModel model)
-        //{
-        //    return RedirectToAction("Index");
-        //}
 
         //[SessionManager("Editar Especies")]
         public IActionResult GetEspecie(int id)
@@ -123,8 +110,6 @@ namespace Appets.WebUI.Controllers
             return AjaxResult(especie, true);
         }
 
-
-
         public IActionResult Eliminar(int id)
         {
             var result = _especiesRepository.Delete(id);
@@ -132,6 +117,4 @@ namespace Appets.WebUI.Controllers
         }
     }
 }
-
-
 
